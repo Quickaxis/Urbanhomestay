@@ -264,6 +264,32 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   box-shadow: 0 15px 35px rgba(218, 171, 115, 0.3);
 }
 
+.option-pill {
+  flex: 1;
+  padding: 0.5rem;
+  background: rgba(13, 17, 28, 0.03);
+  border: 1px solid rgba(13, 17, 28, 0.1);
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.option-pill.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.wa-btn:hover {
+  background: #128C7E !important;
+  transform: scale(1.02);
+}
+
 /* ===== NARRATIVE SECTIONS (EDITORIAL LAYOUT) ===== */
 .narrative-section {
   padding: 8rem 0;

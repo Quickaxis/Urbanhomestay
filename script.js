@@ -197,6 +197,70 @@ const initBookingForm = () => {
   });
 };
 
+// ===== INTERACTIVE WHATSAPP BOOKING =====
+window.toggleBooking = (suiteId) => {
+  const selectors = document.getElementById(`selectors-${suiteId}`);
+  const toggleBtn = selectors.nextElementSibling;
+  
+  if (selectors.style.display === 'none') {
+    selectors.style.display = 'block';
+    toggleBtn.style.display = 'none';
+  }
+};
+
+window.updatePrice = (suiteId, type, price) => {
+  // Update UI Pills
+  const container = document.getElementById(`selectors-${suiteId}`);
+  const pills = container.querySelectorAll('.option-pill');
+  pills.forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Update Price Display
+  const card = container.closest('.suite-card');
+  card.querySelector('.price-value').innerText = `₹${price.toLocaleString()}/- per night`;
+  
+  // Update WA Link
+  const roomName = card.querySelector('.suite-title').innerText;
+  const waLink = document.getElementById(`wa-link-${suiteId}`);
+  const text = encodeURIComponent(`Hi, I want to book the ${roomName} (${type}).`);
+  waLink.href = `https://wa.me/919707647235?text=${text}`;
+};
+
+window.updateDeluxe = (suiteId, type, pax) => {
+  const container = document.getElementById(`selectors-${suiteId}`);
+  const card = container.closest('.suite-card');
+  
+  // Update state from active pills
+  if (type) {
+    container.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+  if (pax) {
+    container.querySelectorAll('.pax-pill').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+  
+  const activeType = container.querySelector('.type-pill.active').innerText;
+  const activePax = container.querySelector('.pax-pill.active').innerText;
+  
+  // Price Mapping for Deluxe (Room 3)
+  let price = 0;
+  if (activeType === 'AC') {
+    price = (activePax === '2 PERSONS') ? 2200 : 2800;
+  } else {
+    price = (activePax === '2 PERSONS') ? 1700 : 2500;
+  }
+  
+  // Update UI
+  card.querySelector('.price-value').innerText = `₹${price.toLocaleString()}/- per night`;
+  card.querySelector('.price-secondary').style.display = 'none'; // Hide the static list
+  
+  // Update WA Link
+  const roomName = card.querySelector('.suite-title').innerText;
+  const text = encodeURIComponent(`Hi, I want to book the ${roomName} for ${activePax.toLowerCase()} (${activeType}).`);
+  document.getElementById(`wa-link-${suiteId}`).href = `https://wa.me/919707647235?text=${text}`;
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initCarousels();
   initLightbox();

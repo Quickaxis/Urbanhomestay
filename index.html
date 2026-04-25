@@ -217,7 +217,15 @@
             <li>✔ Sofa & Dining Table</li>
             <li>✔ Kitchen with Induction</li>
           </ul>
-          <a href="#booking" class="btn-book-card">BOOK NOW</a>
+          <div class="booking-selectors" id="selectors-06" style="display:none; margin-top: 1.5rem;">
+            <p style="font-size: 11px; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold);">PREMIUM SELECTION:</p>
+            <div class="selector-group" style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <span class="option-pill active">AC ONLY</span>
+              <span class="option-pill active">2-4 PERSONS</span>
+            </div>
+            <a href="https://wa.me/919707647235?text=Hi, I want to book the Sunshine Premium Suite (Room No 6)." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+          </div>
+          <button class="btn-book-card toggle-booking" onclick="toggleBooking('06')">BOOK NOW</button>
         </div>
       </div>
 
@@ -261,7 +269,15 @@
             <li>✔ Wardrobe & Dining Table</li>
             <li>✔ Kitchen with Induction</li>
           </ul>
-          <a href="#booking" class="btn-book-card">BOOK NOW</a>
+          <div class="booking-selectors" id="selectors-05" style="display:none; margin-top: 1.5rem;">
+            <p style="font-size: 11px; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold);">SELECT PREFERENCE:</p>
+            <div class="selector-group" style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <button class="option-pill active" onclick="updatePrice('05', 'AC', 2200)">AC</button>
+              <button class="option-pill" onclick="updatePrice('05', 'Non AC', 1700)">NON AC</button>
+            </div>
+            <a id="wa-link-05" href="https://wa.me/919707647235?text=Hi, I want to book the Deep Sea Suite (Room No 5) with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+          </div>
+          <button class="btn-book-card toggle-booking" onclick="toggleBooking('05')">BOOK NOW</button>
         </div>
       </div>
 
@@ -307,7 +323,21 @@
             <li>✔ Kitchen with Gas Stove</li>
             <li>✔ Dining Table</li>
           </ul>
-          <a href="#booking" class="btn-book-card">BOOK NOW</a>
+          <div class="booking-selectors" id="selectors-03" style="display:none; margin-top: 1.5rem;">
+            <p style="font-size: 11px; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold);">SELECT PREFERENCE:</p>
+            <div class="selector-group" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill type-pill active" onclick="updateDeluxe('03', 'AC')">AC</button>
+                <button class="option-pill type-pill" onclick="updateDeluxe('03', 'Non AC')">NON AC</button>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill pax-pill active" onclick="updateDeluxe('03', null, '2 persons')">2 PERSONS</button>
+                <button class="option-pill pax-pill" onclick="updateDeluxe('03', null, '4 persons')">4 PERSONS</button>
+              </div>
+            </div>
+            <a id="wa-link-03" href="https://wa.me/919707647235?text=Hi, I want to book the Deluxe 2 Room Suite (Room No 3) for 2 persons with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+          </div>
+          <button class="btn-book-card toggle-booking" onclick="toggleBooking('03')">BOOK NOW</button>
         </div>
       </div>
     </div>
