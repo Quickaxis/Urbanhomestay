@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Urban Homestay — Dibrugarh's Premier Boutique Stay</title>
+<meta name="description" content="Experience luxury boutique stays in Dibrugarh. Three curated suites — Sunshine Premium, Deluxe 2-Room & Deep Sea — at Boiragimoth, Dibrugarh."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <nav class="main-nav nav-left">
+      <a href="#suites">SUITES</a>
+      <a href="#about-space">ABOUT</a>
+    </nav>
+    <div class="logo-wrap">
+      <img src="photos/logo.jpg/newlogo.png" alt="The Urban Homestay Logo" class="header-logo"/>
+    </div>
+    <nav class="main-nav nav-right">
+      <a href="#location">LOCATION</a>
+      <a href="#booking" class="nav-cta ghost-btn">BOOK NOW</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#suites" onclick="closeMobileNav()">SUITES</a>
+  <a href="#about-space" onclick="closeMobileNav()">ABOUT</a>
+  <a href="#location" onclick="closeMobileNav()">LOCATION</a>
+  <a href="#booking" onclick="closeMobileNav()" class="nav-cta">BOOK NOW</a>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero-section" id="hero">
+  <!-- Framing Lines -->
+  <div class="hero-line hero-line-left"></div>
+  <div class="hero-line hero-line-right"></div>
+
+  <div class="hero-video-container">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="videos/THE URBAN HOMESTAY (5).mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <div class="hero-content-anchor">
+    <h1 class="hero-title">Where the City<br/><em>Breathes Slow.</em></h1>
+  </div>
+</section>
+
+<!-- STATS & AMENITIES GRID -->
+<section class="intro-strip">
+  <div class="intro-grid">
+    <!-- Stat Column 1 -->
+    <div class="intro-column intro-stat-col">
+      <div class="stat-item">
+        <span class="stat-num">03</span>
+        <span class="stat-label">PRIVATE SUITES</span>
+      </div>
+    </div>
+    
+    <!-- Slider Column -->
+    <div class="intro-column intro-slider-col">
+      <div class="amenities-slider-wrap">
+        <div class="amenities-track" id="amenities-track">
+          <!-- Set 1 -->
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6h16v12H4V6z M8 6v12 M16 6v12 M4 10h16 M4 14h16"></path>
+            </svg>
+            <span class="amenity-name">PRIVATE KITCHEN</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 16h10 M5 16l2-10h10l2 10 M9 6h6 M12 16v3 M10 19h4"></path>
+            </svg>
+            <span class="amenity-name">PROJECTOR CINEMA</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 4h10 M12 4v4 M6 8h12 M8 8v1 M12 8v1 M16 8v1 M9 12v1 M12 12v1 M15 12v1"></path>
+            </svg>
+            <span class="amenity-name">RAINFALL SHOWER</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 6h20v12H2V6z M7 21h10 M12 18v3"></path>
+            </svg>
+            <span class="amenity-name">SMART TV</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 4h12v16H6V4z M6 10h12 M9 7h1 M9 13h1"></path>
+            </svg>
+            <span class="amenity-name">MINI FRIDGE</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 4l-4 6h8l-4-6z M8 10v8h8v-8"></path>
+            </svg>
+            <span class="amenity-name">RO WATER</span>
+          </div>
+          <!-- Duplicate Set for Seamless Loop -->
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6h16v12H4V6z M8 6v12 M16 6v12 M4 10h16 M4 14h16"></path>
+            </svg>
+            <span class="amenity-name">PRIVATE KITCHEN</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 16h10 M5 16l2-10h10l2 10 M9 6h6 M12 16v3 M10 19h4"></path>
+            </svg>
+            <span class="amenity-name">PROJECTOR CINEMA</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 4h10 M12 4v4 M6 8h12 M8 8v1 M12 8v1 M16 8v1 M9 12v1 M12 12v1 M15 12v1"></path>
+            </svg>
+            <span class="amenity-name">RAINFALL SHOWER</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 6h20v12H2V6z M7 21h10 M12 18v3"></path>
+            </svg>
+            <span class="amenity-name">SMART TV</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 4h12v16H6V4z M6 10h12 M9 7h1 M9 13h1"></path>
+            </svg>
+            <span class="amenity-name">MINI FRIDGE</span>
+          </div>
+          <div class="amenity-card">
+            <svg class="amenity-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 4l-4 6h8l-4-6z M8 10v8h8v-8"></path>
+            </svg>
+            <span class="amenity-name">RO WATER</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stat Column 2 -->
+    <div class="intro-column intro-stat-col">
+      <div class="stat-item">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">ALWAYS OPEN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUITES SECTION (PALM 715 STYLE) -->
+<section id="suites" class="suites-section section-padding">
+  <div class="container">
+    <div class="section-header center reveal">
+      <h2 class="section-title-alt">The Collection</h2>
+      <p class="section-subtitle">Luxury living, reimagined in the heart of Dibrugarh.</p>
+      <div class="mid-week-badge">✨ Mon, Tue & Wed Special Discount Available</div>
+    </div>
+
+    <div class="suites-grid">
+      <!-- Suite 06: Sunshine Premium -->
+      <div class="suite-card reveal">
+        <div class="card-media">
+          <span class="category-badge">LUXURY</span>
+          <div class="room-carousel" data-suite="06">
+            <div class="carousel-track">
+              <div class="carousel-slide slide-video">
+                <video autoplay loop playsinline muted>
+                  <source src="videos/Sunshine Suite (Room No 6).mp4" type="video/mp4"/>
+                </video>
+                <button class="audio-toggle" aria-label="Toggle Audio">
+                  <svg class="icon-unmute" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M19.07 4.93C20.94 6.8 22 9.3 22 12C22 14.7 20.94 17.2 19.07 19.07M15.54 8.46C16.47 9.39 17 10.64 17 12C17 13.36 16.47 14.61 15.54 15.54"/></svg>
+                  <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M23 9L17 15M17 9L23 15"/></svg>
+                </button>
+              </div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_main.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_1.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_2.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_3.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_4.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_5.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_6.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_7.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_8.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_9.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_10.webp" alt="Suite 06" class="lightbox-trigger"/></div>
+            </div>
+            <button class="carousel-arrow prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-arrow next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="suite-title">Sunshine Premium Suite (Room No 6)</h3>
+          <p class="suite-desc">Our most luxurious stay. Comfort with style.</p>
+          <div class="suite-price">
+            <span class="price-value">₹3,500/- per night</span>
+          </div>
+          <ul class="suite-amenities">
+            <li>✔ AC & Mini Fridge</li>
+            <li>✔ Rainfall Shower & LED Mirror</li>
+            <li>✔ Projector & RO Water</li>
+            <li>✔ Sofa & Dining Table</li>
+            <li>✔ Kitchen with Induction</li>
+          </ul>
+          <a href="#booking" class="btn-book-card">BOOK NOW</a>
+        </div>
+      </div>
+
+      <!-- Suite 05: Deep Sea Suite -->
+      <div class="suite-card reveal">
+        <div class="card-media">
+          <span class="category-badge">MODERN</span>
+          <div class="room-carousel" data-suite="05">
+            <div class="carousel-track">
+              <div class="carousel-slide slide-video">
+                <video autoplay loop playsinline muted>
+                  <source src="videos/Deepsuiteroomno5.mp4" type="video/mp4"/>
+                </video>
+                <button class="audio-toggle" aria-label="Toggle Audio">
+                  <svg class="icon-unmute" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M19.07 4.93C20.94 6.8 22 9.3 22 12C22 14.7 20.94 17.2 19.07 19.07M15.54 8.46C16.47 9.39 17 10.64 17 12C17 13.36 16.47 14.61 15.54 15.54"/></svg>
+                  <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M23 9L17 15M17 9L23 15"/></svg>
+                </button>
+              </div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_main.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_1.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_2.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_3.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_4.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_5.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deep sea suite Room no 5/suite05_6.webp" alt="Suite 05" class="lightbox-trigger"/></div>
+            </div>
+            <button class="carousel-arrow prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-arrow next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="suite-title">Deep Sea Suite (Room No 5)</h3>
+          <p class="suite-desc">Stylish & cozy stay.</p>
+          <div class="suite-price">
+            <span class="price-value">AC ₹2,200 | Non AC ₹1,700</span>
+          </div>
+          <ul class="suite-amenities">
+            <li>✔ Floating Bed & Sofa Cum Bed</li>
+            <li>✔ Smart TV & Geyser</li>
+            <li>✔ Wardrobe & Dining Table</li>
+            <li>✔ Kitchen with Induction</li>
+          </ul>
+          <a href="#booking" class="btn-book-card">BOOK NOW</a>
+        </div>
+      </div>
+
+      <!-- Suite 03: Deluxe 2-Room -->
+      <div class="suite-card reveal">
+        <div class="card-media">
+          <span class="category-badge">VINTAGE</span>
+          <div class="room-carousel" data-suite="03">
+            <div class="carousel-track">
+              <div class="carousel-slide slide-video">
+                <video autoplay loop playsinline muted>
+                  <source src="videos/Deluxe Two Bedroom Suite ( Room No 3).mp4" type="video/mp4"/>
+                </video>
+                <button class="audio-toggle" aria-label="Toggle Audio">
+                  <svg class="icon-unmute" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M19.07 4.93C20.94 6.8 22 9.3 22 12C22 14.7 20.94 17.2 19.07 19.07M15.54 8.46C16.47 9.39 17 10.64 17 12C17 13.36 16.47 14.61 15.54 15.54"/></svg>
+                  <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M23 9L17 15M17 9L23 15"/></svg>
+                </button>
+              </div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_main.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_1.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_2.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_3.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_4.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_5.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_6.webp" alt="Suite 03" class="lightbox-trigger"/></div>
+            </div>
+            <button class="carousel-arrow prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-arrow next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="suite-title">Deluxe 2 Room Suite (Room No 3)</h3>
+          <p class="suite-desc">Perfect for families, groups, couples & friends.</p>
+          <div class="suite-price">
+            <span class="price-value">AC: ₹2,200 (2 persons) / ₹2,800 (4 persons)</span>
+            <span class="price-secondary">Non AC: ₹1,700 (2 persons) / ₹2,500 (4 persons)</span>
+          </div>
+          <ul class="suite-amenities">
+            <li>✔ 2 Bedrooms & Private Balcony</li>
+            <li>✔ Smart TV & Geyser</li>
+            <li>✔ Wardrobe & Large Mirror</li>
+            <li>✔ Kitchen with Gas Stove</li>
+            <li>✔ Dining Table</li>
+          </ul>
+          <a href="#booking" class="btn-book-card">BOOK NOW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<!-- ABOUT THE SPACE -->
+<section id="about-space" class="narrative-section reveal">
+  <div class="container">
+    <div class="asymmetric-grid">
+      <!-- Left Side: Visual Collage -->
+      <div class="visual-collage">
+        <div class="collage-main">
+          <img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_8.webp" alt="Sunshine Suite Interior" loading="lazy"/>
+        </div>
+        <div class="collage-detail">
+          <img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_1.webp" alt="Private Balcony" loading="lazy"/>
+        </div>
+        <div class="collage-detail">
+          <img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_3.webp" alt="Kitchenette" loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Right Side: Narrative -->
+      <div class="narrative-content">
+        <span class="narrative-tag">ABOUT THE SPACE</span>
+        <h2 class="narrative-headline">Where Design meets<br/><em>Assamese Warmth</em></h2>
+        <p class="narrative-body">
+          Our architectural intent blends the geometric precision of the Urban aesthetic with the peaceful, slow-paced life of Boiragimoth. 
+          Every room is a deliberate composition of light, shadow, and comfort, designed to offer a sanctuary from the city's pulse.
+        </p>
+        <div class="facility-pills">
+          <div class="glass-pill">In-Room Cinema</div>
+          <div class="glass-pill">Private Cooking</div>
+          <div class="glass-pill">High-Speed Fiber</div>
+          <div class="glass-pill">24/7 Backup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE HOMESTAY -->
+<section id="about-homestay" class="narrative-section reveal">
+  <div class="container">
+    <div class="cinematic-visual">
+      <img src="photos/Sunshine Premium Suite (Room no 6 )/suite06_main.webp" alt="The Urban Homestay Experience" loading="lazy"/>
+    </div>
+    <div class="centered-narrative">
+      <span class="narrative-tag">OUR PHILOSOPHY</span>
+      <h2 class="narrative-headline">More than a Stay,<br/><em>A Local Memory</em></h2>
+      <p class="narrative-body" style="margin: 0 auto 3rem;">
+        The Urban Homestay was built for the traveler who seeks the privacy of a hotel but the heart of a home. 
+        Located as a central gateway in Dibrugarh, we connect you to the heritage of the tea gardens and the vastness of the Brahmaputra, 
+        all while providing a boutique haven to return to.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HOUSE RULES -->
+<section id="house-rules" class="rules-section reveal">
+  <div class="container">
+    <div class="rules-header">
+      <span class="narrative-tag">HOUSE RULES</span>
+      <h2 class="narrative-headline" style="color: var(--bg);">A Few Kind<br/><em>Reminders</em></h2>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <span class="rule-num">01</span>
+        <h4 class="rule-title">Close the Gate</h4>
+        <p class="rule-text">Please make sure to close the gate once you enter the premises for the security and privacy of all guests.</p>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">02</span>
+        <h4 class="rule-title">Quiet Hours</h4>
+        <p class="rule-text">Avoid making loud noise after 10 PM out of respect for the neighbourhood and fellow travelers.</p>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">03</span>
+        <h4 class="rule-title">Save Energy</h4>
+        <p class="rule-text">Please turn off the AC and all electrical equipment before leaving the premises to help us stay sustainable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- GET IN TOUCH / BOOKING -->
+<section id="booking" class="booking-section reveal">
+  <div class="container">
+    <div class="booking-grid">
+      <!-- Left side: Narrative & Contact -->
+      <div class="booking-narrative">
+        <span class="narrative-tag">GET IN TOUCH</span>
+        <h2 class="narrative-headline">Ready to<br/><em>Book Your Stay?</em></h2>
+        <p class="narrative-body">
+          We'd love to host you at Boiragimoth. Reach out via WhatsApp or fill the form and we'll get back to you shortly.
+        </p>
+        
+        <div class="contact-info-list">
+          <div class="contact-item">
+            <div class="contact-icon-box">📞</div>
+            <div class="contact-text">
+              <h4>Call Us</h4>
+              <p>+91 97076 47235</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-box">💬</div>
+            <div class="contact-text">
+              <h4>WhatsApp Us</h4>
+              <p>Quick response guaranteed</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-box">📍</div>
+            <div class="contact-text">
+              <h4>Boiragimoth, Dibrugarh</h4>
+              <p>Exact address shared on booking</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-box">📸</div>
+            <div class="contact-text">
+              <h4>Follow Us</h4>
+              <p>@theurbanhomestay_dibrugarh</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Booking Form Card -->
+      <div class="booking-card">
+        <form id="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>YOUR NAME</label>
+              <input type="text" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label>PHONE / WHATSAPP</label>
+              <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>CHECK IN</label>
+              <input type="date" required>
+            </div>
+            <div class="form-group">
+              <label>CHECK OUT</label>
+              <input type="date" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label>GUESTS</label>
+            <select required>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>MESSAGE (OPTIONAL)</label>
+            <textarea rows="4" placeholder="Any special requests or questions?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-booking-primary">
+            SEND BOOKING REQUEST VIA WHATSAPP 💬
+          </button>
+          <button type="button" class="btn-booking-secondary" onclick="window.location.href='tel:+919707647235'">
+            📞 CALL NOW
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF & FINAL CALL -->
+<section id="social-proof" class="proof-section reveal">
+  <div class="container">
+    <div class="final-call-box" style="margin-bottom: 8rem;">
+      <div class="phone-icon-large">📞</div>
+      <span class="proof-label">DIRECT BOOKING</span>
+      <h2 class="proof-headline">Ready to Book Your Stay?<br/><em>Call us directly we confirm instantly.</em></h2>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+        <a href="tel:+919707647235" class="btn-call-primary">Call: 97076 47235</a>
+        <a href="mailto:theurbanhomestay5@gmail.com" class="btn-call-secondary">Email Us</a>
+      </div>
+    </div>
+
+    <span class="proof-label">TRUSTED & LOVED</span>
+    <h2 class="proof-headline">Our Guests Don't Just Visit<br/><em>They Return</em></h2>
+    
+    <div class="proof-grid">
+      <div class="proof-card">
+        <span class="proof-card-icon">⭐</span>
+        <h4>5-Star Rated</h4>
+        <p>Consistently loved by every guest for our hospitality and design.</p>
+      </div>
+      <div class="proof-card">
+        <span class="proof-card-icon">🎬</span>
+        <h4>Celebrity Visited</h4>
+        <p>Loved by Assamese singers & actors seeking a private boutique haven.</p>
+      </div>
+      <div class="proof-card">
+        <span class="proof-card-icon">🔄</span>
+        <h4>High Return Rate</h4>
+        <p>Guests always come back for the peaceful Boiragimoth experience.</p>
+      </div>
+    </div>
+
+    <div class="feature-badges-row">
+      <div class="feature-badge">🐾 Pet Friendly</div>
+      <div class="feature-badge">👨‍👩‍👧‍👦 Family Friendly</div>
+      <div class="feature-badge">💼 Business Travelers</div>
+      <div class="feature-badge">❤️ Couples</div>
+      <div class="feature-badge">🏡 Long-term Stays</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LOCATION SECTION (PALM 715 STYLE) -->
+<section class="location-section reveal" id="location">
+  <div class="container">
+    <div class="location-header">
+      <span class="narrative-tag">FIND US</span>
+      <h2 class="narrative-headline">Where Comfort<br/><em>Meets the City</em></h2>
+      <p class="narrative-body" style="margin: 0 auto;">We're easy to find — located right in the heart of Boiragimoth.</p>
+    </div>
+
+    <div class="location-card-centered">
+      <span>📍 THE URBAN HOMESTAY</span>
+      <p>Boiragimoth, Dibrugarh, Assam — 786001</p>
+    </div>
+
+    <div class="map-container-centered">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3538.076326651817!2d94.9048866752495!3d27.4668726763212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37409930f36f6103%3A0xe5a3637e7a57a627!2sThe%20Urban%20Homestay!5e0!3m2!1sen!2sin!4v1714064500000!5m2!1sen!2sin"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <a href="https://maps.app.goo.gl/p3RLZMnje21T9ghM9" target="_blank" class="btn-sky-blue">Get Directions —</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="photos/logo.jpg/newlogo.png" alt="The Urban Homestay" class="footer-logo"/>
+        <p class="footer-tagline"><em>Boutique Living in the Heart of Dibrugarh.</em></p>
+      </div>
+      
+      <div class="footer-links">
+        <p class="footer-col-title">NAVIGATE</p>
+        <a href="#suites">Suites</a>
+        <a href="#about-space">About</a>
+        <a href="#location">Location</a>
+        <a href="#booking">Book Now</a>
+      </div>
+
+      <div class="footer-links">
+        <p class="footer-col-title">SUITES</p>
+        <a href="#suites">Sunshine Premium — No. 6</a>
+        <a href="#suites">Deluxe 2-Room — No. 3</a>
+        <a href="#suites">Deep Sea — No. 5</a>
+      </div>
+
+      <div class="footer-contact">
+        <p class="footer-col-title">CONTACT</p>
+        <p>Boiragimoth, Dibrugarh</p>
+        <p>Assam — 786001</p>
+        <a href="tel:+919707647235">+91 97076 47235</a>
+        <a href="mailto:theurbanhomestay5@gmail.com">theurbanhomestay5@gmail.com</a>
+      </div>
+
+      <div class="footer-links">
+        <p class="footer-col-title">HOUSE RULES</p>
+        <p style="font-size: 12px; opacity: 0.6; margin-bottom: 0.8rem;">Quiet hours after 10 PM</p>
+        <p style="font-size: 12px; opacity: 0.6; margin-bottom: 0.8rem;">Pet Friendly Premises</p>
+        <p style="font-size: 12px; opacity: 0.6; margin-bottom: 0.8rem;">Self Check-In available</p>
+        <p style="font-size: 12px; opacity: 0.6; margin-bottom: 0.8rem;">Turn off AC before leaving</p>
+      </div>
+    </div>
+
+    <div class="footer-seo-text">
+      Looking for the best homestay in Dibrugarh? The Urban Homestay offers a premium boutique stay experience in the heart of Boiragimoth. 
+      Perfect for families, couples, and solo travelers exploring Assam. We provide the finest luxury suite rentals 
+      with top-tier amenities, cinematic entertainment, and a peaceful atmosphere.
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Urban Homestay, Dibrugarh. All rights reserved.</p>
+      <p>Crafted with 🖤 in Dibrugarh, Assam</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+  <button class="lightbox-next" id="lightbox-next" aria-label="Next">›</button>
+  <div class="lightbox-img-wrap">
+    <img src="" alt="" id="lightbox-img"/>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
