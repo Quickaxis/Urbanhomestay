@@ -102,12 +102,35 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .mobile-nav {
   display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
-  flex-direction: column; background: var(--glass-bg);
-  backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-midnight);
-  padding: 1.5rem 2rem;
+  flex-direction: column; background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(13, 17, 28, 0.05);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 .mobile-nav.open { display: flex; }
-.mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem 0; border-bottom: 1px solid rgba(13,17,28,0.1); }
+.mobile-nav a { 
+  font-family: var(--font-ui);
+  font-size: 14px; 
+  font-weight: 700; 
+  letter-spacing: 0.15em; 
+  text-transform: uppercase; 
+  padding: 1.25rem 0; 
+  border-bottom: 1px solid rgba(13, 17, 28, 0.05);
+  color: var(--ink);
+  text-decoration: none;
+}
+.mobile-nav a.nav-cta {
+  margin-top: 1.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  color: var(--gold);
+  padding: 1.25rem;
+  background: rgba(218, 171, 115, 0.05);
+  animation: glow 2s infinite alternate;
+  border-bottom: 1px solid var(--gold); /* Override the default link border */
+}
 
 /* ===== HERO ===== */
 .hero-section {
