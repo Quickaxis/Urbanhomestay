@@ -13,15 +13,23 @@
   --font-ui: 'Inter', sans-serif;
   --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
 }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); overflow-x: hidden; }
+html { scroll-behavior: smooth; width: 100%; overflow-x: hidden; }
+body { 
+  background: var(--bg); 
+  color: var(--ink); 
+  font-family: var(--font-ui); 
+  overflow-x: hidden; 
+  width: 100%;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
 a { color: inherit; text-decoration: none; }
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
 video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* ===== HEADER ===== */
 .site-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
   background: var(--glass-bg);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-midnight);
@@ -83,10 +91,10 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* ===== HERO ===== */
 .hero-section {
-  position: relative; width: 100%; height: 100vh; min-height: 700px;
+  position: relative; width: 100%; height: 100vh; min-height: 600px;
   border-bottom: 1px solid var(--border-midnight); overflow: hidden;
 }
-.hero-video-container { position: absolute; inset: 0; z-index: -1; }
+.hero-video-container { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
 .hero-video { width: 100%; height: 100%; object-fit: cover; }
 .hero-overlay { position: absolute; inset: 0; background: rgba(13,17,28,0.1); }
 
@@ -95,8 +103,9 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   .hero-content-anchor { left: 1.5rem; bottom: 3rem; width: calc(100% - 3rem); }
 }
 .hero-title { 
-  font-family: var(--font-editorial); font-size: clamp(3rem,5vw,5rem); 
+  font-family: var(--font-editorial); font-size: clamp(2.5rem, 8vw, 5rem); 
   font-weight: 300; font-style: italic; line-height: 1.1; color: var(--ink); 
+  word-wrap: break-word;
 }
 @media (max-width: 768px) {
   .hero-title { font-size: 2.5rem; }
@@ -108,10 +117,9 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   background: var(--bg); 
   overflow: hidden;
 }
-.intro-grid { 
-  display: grid; 
-  grid-template-columns: 240px 1fr 240px; 
-  min-height: 280px;
+@media (max-width: 1200px) {
+  .intro-grid { grid-template-columns: 1fr; }
+  .intro-column { border-right: none; border-bottom: 1px solid rgba(13,17,28,0.1); }
 }
 .intro-column { 
   border-right: 1px solid var(--border-midnight); 
@@ -887,22 +895,19 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .lightbox-close { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1100px) { 
-  .suites-grid { grid-template-columns: repeat(2, 1fr); } 
-  .footer-grid { grid-template-columns: 1fr 1fr; } 
-  .intro-grid { grid-template-columns: 200px 1fr 200px; }
+@media (max-width: 1200px) {
+  .suites-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 900px) {
-  .intro-grid { grid-template-columns: 1fr; }
-  .intro-column { border-right: none; border-bottom: 1px solid rgba(13,17,28,0.1); }
+  .suites-grid { grid-template-columns: 1fr; }
   .intro-slider-col { height: 300px; }
 }
 
 @media (max-width: 768px) {
   .main-nav { display: none; } 
   .hamburger { display: flex; }
-  .suites-grid { grid-template-columns: 1fr; gap: 2rem; } 
   .location-grid { grid-template-columns: 1fr; gap: 3rem; }
   .mega-gallery-grid { grid-template-columns: repeat(2, 1fr); } 
   .footer-grid { grid-template-columns: 1fr; }
@@ -913,8 +918,9 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 2.2rem; }
-  .stat-num { font-size: 3.5rem; }
-  .section-title-alt { font-size: 2.2rem; }
+  .hero-title { font-size: 2rem; }
+  .stat-num { font-size: 3rem; }
+  .section-title-alt { font-size: 2rem; }
   .mega-gallery-grid { grid-template-columns: 1fr; }
+  .header-logo { height: 45px; }
 }
