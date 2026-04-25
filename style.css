@@ -124,13 +124,12 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .mobile-nav a.nav-cta {
   margin-top: 1.5rem;
-  border: 1px solid var(--gold);
+  border: 2px solid #0D111C;
   border-radius: 100px;
-  color: var(--gold);
+  color: #fff !important;
   padding: 1.25rem;
-  background: rgba(218, 171, 115, 0.05);
+  background: #0D111C;
   animation: glow 2s infinite alternate;
-  border-bottom: 1px solid var(--gold); /* Override the default link border */
 }
 
 /* ===== HERO ===== */
