@@ -200,11 +200,14 @@ const initBookingForm = () => {
 // ===== INTERACTIVE WHATSAPP BOOKING =====
 window.toggleBooking = (suiteId) => {
   const selectors = document.getElementById(`selectors-${suiteId}`);
-  const toggleBtn = selectors.nextElementSibling;
+  const cardContent = selectors.closest('.card-content');
+  const toggleBtn = cardContent.querySelector('.toggle-booking');
+  const note = cardContent.querySelector('.room-note');
   
   if (selectors.style.display === 'none') {
     selectors.style.display = 'block';
-    toggleBtn.style.display = 'none';
+    if (toggleBtn) toggleBtn.style.display = 'none';
+    if (note) note.style.display = 'none';
   }
 };
 
