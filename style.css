@@ -903,6 +903,13 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 900px) {
   .suites-grid { grid-template-columns: 1fr; }
   .intro-slider-col { height: 300px; }
+  .asymmetric-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .visual-collage { grid-template-columns: 1fr; }
+  .collage-main { grid-row: auto; aspect-ratio: 4/3; }
+  .collage-detail { display: none; } /* Hide small details on mobile to keep focus on main visual */
+  .narrative-content { padding-right: 0; text-align: center; }
+  .narrative-body { margin: 0 auto 2rem; }
+  .facility-pills { justify-content: center; }
 }
 
 @media (max-width: 768px) {
