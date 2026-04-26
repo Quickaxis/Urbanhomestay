@@ -474,7 +474,7 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .rules-visual-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 5rem;
 }
