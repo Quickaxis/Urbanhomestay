@@ -494,8 +494,18 @@
           </div>
 
           <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label>SELECT ROOM</label>
+            <select id="room-select" required>
+              <option value="" disabled selected>Choose your suite...</option>
+              <option value="Sunshine Premium Suite (Room 6)">Sunshine Premium Suite (Room 6)</option>
+              <option value="Sunshine Executive Suite (Room 5)">Sunshine Executive Suite (Room 5)</option>
+              <option value="Deluxe 2 Room Suite (Room 3)">Deluxe 2 Room Suite (Room 3)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
             <label>GUESTS</label>
-            <select required>
+            <select id="guest-select" required>
               <option value="1">1 Guest</option>
               <option value="2">2 Guests</option>
               <option value="3">3 Guests</option>

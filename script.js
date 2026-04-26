@@ -229,12 +229,14 @@ const initBookingForm = () => {
     const phone = form.querySelector('input[type="tel"]').value;
     const checkIn = form.querySelectorAll('input[type="date"]')[0].value;
     const checkOut = form.querySelectorAll('input[type="date"]')[1].value;
-    const guests = form.querySelector('select').value;
+    const room = document.getElementById('room-select').value;
+    const guests = document.getElementById('guest-select').value;
     const message = form.querySelector('textarea').value;
 
     const whatsappText = `Hi The Urban Homestay, I'd like to request a booking.%0A%0A` +
       `*Name:* ${name}%0A` +
       `*Phone:* ${phone}%0A` +
+      `*Room:* ${room}%0A` +
       `*Check-In:* ${checkIn}%0A` +
       `*Check-Out:* ${checkOut}%0A` +
       `*Guests:* ${guests}%0A` +
