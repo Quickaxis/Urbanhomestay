@@ -533,7 +533,22 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 
 @media (max-width: 600px) {
-  .rules-visual-grid { grid-template-columns: 1fr; }
+  .rules-visual-grid { 
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  .rules-visual-grid::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+  
+  .rule-card {
+    min-width: 280px;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
 }
 
 .rule-item {
