@@ -477,25 +477,61 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
   gap: 1.5rem;
 }
 
-.contact-icon-box {
-  width: 48px;
-  height: 48px;
-  background: var(--glass-bg);
-  border: 0.5px solid var(--gold);
-  border-radius: 12px;
+.contact-link-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: rgba(218, 171, 115, 0.05);
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--ink);
+}
+
+.contact-link-card:hover {
+  background: rgba(218, 171, 115, 0.15);
+  transform: translateX(10px) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(218, 171, 115, 0.2);
+  border-color: var(--ink);
+}
+
+.contact-link-card .contact-icon-box {
+  width: 54px;
+  height: 54px;
+  background: #fff;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+
+.contact-link-card:hover .contact-icon-box {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.contact-link-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-link-card p {
+  font-size: 13px;
   color: var(--slate);
+  font-weight: 500;
 }
 
 .contact-text h4 { font-size: 14px; font-weight: 600; margin-bottom: 0.2rem; }
