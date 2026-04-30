@@ -456,9 +456,26 @@ const initVideoControls = () => {
       overlay.addEventListener(evt, (e) => e.stopPropagation());
     });
 
-    slide.addEventListener('click', (e) => {
+    // Better mobile toggle
+    let slideTouchStart = 0;
+    slide.addEventListener('touchstart', (e) => {
+      slideTouchStart = e.touches[0].clientX;
+    }, {passive: true});
+
+    slide.addEventListener('touchend', (e) => {
       if (e.target.closest('.video-control-bar') || e.target.closest('.audio-toggle')) return;
-      slide.classList.toggle('show-controls');
+      const slideTouchEnd = e.changedTouches[0].clientX;
+      if (Math.abs(slideTouchStart - slideTouchEnd) < 10) {
+        e.preventDefault();
+        slide.classList.toggle('show-controls');
+      }
+    });
+
+    slide.addEventListener('click', (e) => {
+      if (window.innerWidth > 1024) { // Only for desktop, mobile uses touchend
+        if (e.target.closest('.video-control-bar') || e.target.closest('.audio-toggle')) return;
+        slide.classList.toggle('show-controls');
+      }
     });
 
     video.addEventListener('timeupdate', () => {
@@ -476,12 +493,15 @@ const initVideoControls = () => {
     };
 
     timeline.addEventListener('click', handleSeek);
+    timeline.addEventListener('touchstart', (e) => e.stopPropagation());
     timeline.addEventListener('touchmove', (e) => {
+      e.stopPropagation();
       e.preventDefault();
       handleSeek(e);
-    });
+    }, {passive: false});
 
     playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (video.paused) {
         video.play();
         playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
@@ -492,6 +512,7 @@ const initVideoControls = () => {
     });
 
     enlargeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const videoSrc = video.querySelector('source').src;
       openVideoInLightbox(videoSrc);
     });
@@ -501,12 +522,15 @@ const initVideoControls = () => {
 const openVideoInLightbox = (src) => {
   const lightbox = document.getElementById('lightbox');
   const lightboxVideo = document.getElementById('lightbox-video');
-  const videoContainer = document.getElementById('lightbox-video-container');
+  const lightboxImg = document.getElementById('lightbox-img');
   
   if (!lightbox || !lightboxVideo) return;
 
   lightbox.classList.add('video-mode');
+  if (lightboxImg) lightboxImg.style.display = 'none';
+  
   lightboxVideo.src = src;
+  lightboxVideo.load();
   lightboxVideo.play();
   
   lightbox.style.display = 'flex';
