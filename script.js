@@ -274,13 +274,10 @@ window.updatePrice = (suiteId, type, price) => {
   
   // Update Price Display
   const card = container.closest('.suite-card');
-  card.querySelector('.price-value').innerText = `₹${price.toLocaleString()}/- per night`;
-  
-  // Update WA Link
-  const roomName = card.querySelector('.suite-title').innerText;
-  const waLink = document.getElementById(`wa-link-${suiteId}`);
-  const text = encodeURIComponent(`Hi, I want to book the ${roomName} (${type}).`);
-  waLink.href = `https://wa.me/919707647235?text=${text}`;
+  const priceDisplay = card.querySelector('.price-tag') || card.querySelector('.price-value');
+  if (priceDisplay) {
+    priceDisplay.innerText = `₹${price.toLocaleString()}/- per night`;
+  }
 };
 
 window.updateDeluxe = (suiteId, type, pax) => {
@@ -305,9 +302,11 @@ window.updateDeluxe = (suiteId, type, pax) => {
     });
   }
   
-  const activeType = container.querySelector('.type-pill.active').innerText;
-  const activePax = container.querySelector('.pax-pill.active').innerText;
+  const activeType = container.querySelector('.type-pill.active')?.innerText;
+  const activePax = container.querySelector('.pax-pill.active')?.innerText;
   
+  if (!activeType || !activePax) return;
+
   // Price Mapping for Deluxe (Room 3)
   let price = 0;
   if (activeType === 'AC') {
@@ -317,24 +316,51 @@ window.updateDeluxe = (suiteId, type, pax) => {
   }
   
   // Update UI
-  const priceValueEl = card.querySelector('.price-value');
+  let priceValueEl = card.querySelector('.price-tag') || card.querySelector('.price-value');
   if (priceValueEl) {
     priceValueEl.innerText = `₹${price.toLocaleString()}/- per night`;
   } else {
     const suitePriceEl = card.querySelector('.suite-price');
     if (suitePriceEl) {
-      suitePriceEl.innerHTML = `<span class="price-value">₹${price.toLocaleString()}/- per night</span>`;
+      suitePriceEl.innerHTML = `<span class="price-tag">₹${price.toLocaleString()}/- per night</span>`;
     }
   }
   
   const priceSecondary = card.querySelector('.price-secondary');
   if (priceSecondary) priceSecondary.style.display = 'none';
+};
+
+// Senior Frontend Engineer Implementation
+window.togglePref = (btn, suiteId, type, pax) => {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.option-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
   
-  // Update WA Link
-  const roomName = card.querySelector('.suite-title').innerText;
-  const text = encodeURIComponent(`Hi, I want to book the ${roomName} for ${activePax.toLowerCase()} (${activeType}).`);
-  const waLink = document.getElementById(`wa-link-${suiteId}`);
-  if (waLink) waLink.href = `https://wa.me/919707647235?text=${text}`;
+  // Maintain dynamic price updates
+  if (suiteId === '03') {
+    updateDeluxe(suiteId, type, pax);
+  } else if (suiteId === '05') {
+    // For Room 05, type is the 2nd arg, price is the 3rd
+    const price = type === 'AC' ? 2200 : 1700;
+    updatePrice(suiteId, type, price);
+  }
+};
+
+window.bookUrbanHomestay = (suiteId) => {
+  const container = document.getElementById(`selectors-${suiteId}`);
+  const card = container.closest('.suite-card');
+  
+  const acChoice = container.querySelector('.ac-row .active')?.innerText || 
+                   container.querySelector('.type-pill.active')?.innerText || 'Not specified';
+  const capacityChoice = container.querySelector('.capacity-row .active')?.innerText || 
+                         container.querySelector('.pax-pill.active')?.innerText || 'Not specified';
+  const price = card.querySelector('.price-tag')?.innerText || 
+                card.querySelector('.price-value')?.innerText || 'See pricing';
+  
+  const message = `Hello Urban Homestay, I want to book a room. Preference: ${acChoice}, Guests: ${capacityChoice}, Rate: ${price}.`;
+  const whatsappUrl = `https://wa.me/918471887311?text=${encodeURIComponent(message)}`;
+  
+  window.open(whatsappUrl, '_blank');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
