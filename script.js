@@ -265,8 +265,12 @@ window.updatePrice = (suiteId, type, price) => {
   // Update UI Pills
   const container = document.getElementById(`selectors-${suiteId}`);
   const pills = container.querySelectorAll('.option-pill');
-  pills.forEach(p => p.classList.remove('active'));
-  event.target.classList.add('active');
+  pills.forEach(p => {
+    p.classList.remove('active');
+    if (p.innerText.trim().toUpperCase() === type.toUpperCase()) {
+      p.classList.add('active');
+    }
+  });
   
   // Update Price Display
   const card = container.closest('.suite-card');
@@ -285,12 +289,20 @@ window.updateDeluxe = (suiteId, type, pax) => {
   
   // Update state from active pills
   if (type) {
-    container.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
+    container.querySelectorAll('.type-pill').forEach(p => {
+      p.classList.remove('active');
+      if (p.innerText.trim().toUpperCase() === type.toUpperCase()) {
+        p.classList.add('active');
+      }
+    });
   }
   if (pax) {
-    container.querySelectorAll('.pax-pill').forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
+    container.querySelectorAll('.pax-pill').forEach(p => {
+      p.classList.remove('active');
+      if (p.innerText.trim().toUpperCase() === pax.toUpperCase()) {
+        p.classList.add('active');
+      }
+    });
   }
   
   const activeType = container.querySelector('.type-pill.active').innerText;
