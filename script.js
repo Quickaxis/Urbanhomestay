@@ -282,9 +282,10 @@ window.updatePrice = (suiteId, type, price) => {
 
 window.updateDeluxe = (suiteId, type, pax) => {
   const container = document.getElementById(`selectors-${suiteId}`);
+  if (!container) return;
   const card = container.closest('.suite-card');
   
-  // Update state from active pills
+  // Ensure the correct pills are active based on arguments (redundant but safe)
   if (type) {
     container.querySelectorAll('.type-pill').forEach(p => {
       p.classList.remove('active');
@@ -302,8 +303,9 @@ window.updateDeluxe = (suiteId, type, pax) => {
     });
   }
   
-  const activeType = container.querySelector('.type-pill.active')?.innerText;
-  const activePax = container.querySelector('.pax-pill.active')?.innerText;
+  // Read state from DOM
+  const activeType = container.querySelector('.type-pill.active')?.innerText.trim().toUpperCase();
+  const activePax = container.querySelector('.pax-pill.active')?.innerText.trim().toUpperCase();
   
   if (!activeType || !activePax) return;
 
@@ -316,7 +318,7 @@ window.updateDeluxe = (suiteId, type, pax) => {
   }
   
   // Update UI
-  let priceValueEl = card.querySelector('.price-tag') || card.querySelector('.price-value');
+  const priceValueEl = card.querySelector('.price-tag') || card.querySelector('.price-value');
   if (priceValueEl) {
     priceValueEl.innerText = `₹${price.toLocaleString()}/- per night`;
   } else {
@@ -332,30 +334,36 @@ window.updateDeluxe = (suiteId, type, pax) => {
 
 // Senior Frontend Engineer Implementation
 window.togglePref = (btn, suiteId, type, pax) => {
+  if (!btn) return;
   const parent = btn.parentElement;
+  if (!parent) return;
+
+  // Visual Toggle
   parent.querySelectorAll('.option-pill').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   
-  // Maintain dynamic price updates
+  // Logic Synchronization
   if (suiteId === '03') {
     updateDeluxe(suiteId, type, pax);
   } else if (suiteId === '05') {
-    // For Room 05, type is the 2nd arg, price is the 3rd
-    const price = type === 'AC' ? 2200 : 1700;
-    updatePrice(suiteId, type, price);
+    // For Room 05, type determines price
+    const currentType = type || btn.innerText.trim();
+    const price = currentType.toUpperCase().includes('AC') && !currentType.toUpperCase().includes('NON AC') ? 2200 : 1700;
+    updatePrice(suiteId, currentType, price);
   }
 };
 
 window.bookUrbanHomestay = (suiteId) => {
   const container = document.getElementById(`selectors-${suiteId}`);
+  if (!container) return;
   const card = container.closest('.suite-card');
   
-  const acChoice = container.querySelector('.ac-row .active')?.innerText || 
-                   container.querySelector('.type-pill.active')?.innerText || 'Not specified';
-  const capacityChoice = container.querySelector('.capacity-row .active')?.innerText || 
-                         container.querySelector('.pax-pill.active')?.innerText || 'Not specified';
-  const price = card.querySelector('.price-tag')?.innerText || 
-                card.querySelector('.price-value')?.innerText || 'See pricing';
+  const acChoice = container.querySelector('.ac-row .active')?.innerText.trim() || 
+                   container.querySelector('.type-pill.active')?.innerText.trim() || 'Not specified';
+  const capacityChoice = container.querySelector('.capacity-row .active')?.innerText.trim() || 
+                         container.querySelector('.pax-pill.active')?.innerText.trim() || 'Not specified';
+  const price = card.querySelector('.price-tag')?.innerText.trim() || 
+                card.querySelector('.price-value')?.innerText.trim() || 'See pricing';
   
   const message = `Hello Urban Homestay, I want to book a room. Preference: ${acChoice}, Guests: ${capacityChoice}, Rate: ${price}.`;
   const whatsappUrl = `https://wa.me/918471887311?text=${encodeURIComponent(message)}`;
