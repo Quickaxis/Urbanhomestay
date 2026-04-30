@@ -261,11 +261,10 @@ window.toggleBooking = (suiteId) => {
   }
 };
 
-window.updatePrice = (suiteId, type, price) => {
-  const container = document.getElementById(`selectors-${suiteId}`);
-  if (!container) return;
-  const card = container.closest('.suite-card');
-  if (!card) return;
+window.updatePrice = (btn, suiteId, type, price) => {
+  const card = btn.closest('.suite-card');
+  const container = card.querySelector('.booking-selectors');
+  if (!container || !card) return;
 
   // Update UI Pills
   const pills = container.querySelectorAll('.option-pill');
@@ -284,7 +283,7 @@ window.updatePrice = (suiteId, type, price) => {
   
   // Update WA Link
   const titleEl = card.querySelector('.suite-title');
-  const waLink = document.getElementById(`wa-link-${suiteId}`);
+  const waLink = card.querySelector('.wa-btn');
   if (titleEl && waLink) {
     const roomName = titleEl.textContent.trim();
     const text = encodeURIComponent(`Hi, I want to book the ${roomName} (${type}).`);
@@ -292,11 +291,10 @@ window.updatePrice = (suiteId, type, price) => {
   }
 };
 
-window.updateDeluxe = (suiteId, type, pax) => {
-  const container = document.getElementById(`selectors-${suiteId}`);
-  if (!container) return;
-  const card = container.closest('.suite-card');
-  if (!card) return;
+window.updateDeluxe = (btn, suiteId, type, pax) => {
+  const card = btn.closest('.suite-card');
+  const container = card.querySelector('.booking-selectors');
+  if (!container || !card) return;
   
   // Update state from active pills
   if (type) {
@@ -351,10 +349,9 @@ window.updateDeluxe = (suiteId, type, pax) => {
   
   // Update WA Link
   const titleEl = card.querySelector('.suite-title');
-  const waLink = document.getElementById(`wa-link-${suiteId}`);
+  const waLink = card.querySelector('.wa-btn');
   if (titleEl && waLink) {
     const roomName = titleEl.textContent.trim();
-    // Using a more explicit string matching for the message
     const cleanPax = paxUpper.includes('2') ? '2 persons' : '4 persons';
     const cleanType = typeUpper.includes('NON') ? 'Non AC' : 'AC';
     const messageText = `Hi, I want to book the ${roomName} for ${cleanPax} with ${cleanType}.`;
