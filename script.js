@@ -162,7 +162,57 @@ const initCarousels = () => {
       track.style.transform = `translateX(-${index * 100}%)`;
       currentIdx = index;
       updateDots(index);
+
+      // Manage video playback on slide change
+      slides.forEach((slide, i) => {
+        const video = slide.querySelector('video');
+        if (video) {
+          if (i === index) {
+            video.play();
+          } else {
+            video.pause();
+            video.muted = true;
+            const toggle = slide.querySelector('.audio-toggle');
+            if (toggle) {
+              const unmuteIcon = toggle.querySelector('.icon-unmute');
+              const muteIcon = toggle.querySelector('.icon-mute');
+              if (unmuteIcon) unmuteIcon.style.display = 'none';
+              if (muteIcon) muteIcon.style.display = 'block';
+            }
+          }
+        }
+      });
     };
+
+    // Auto-pause videos when they leave viewport
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target.querySelector('video');
+        if (video && !entry.isIntersecting) {
+          video.pause();
+          video.muted = true;
+          const toggle = entry.target.querySelector('.audio-toggle');
+          if (toggle) {
+            const unmuteIcon = toggle.querySelector('.icon-unmute');
+            const muteIcon = toggle.querySelector('.icon-mute');
+            if (unmuteIcon) unmuteIcon.style.display = 'none';
+            if (muteIcon) muteIcon.style.display = 'block';
+          }
+        } else if (video && entry.isIntersecting) {
+            // Only play if it's the active slide
+            const slideIdx = Array.from(track.children).indexOf(entry.target);
+            if (slideIdx === currentIdx) {
+                video.play();
+            }
+        }
+      });
+    }, { threshold: 0.2 });
+
+    slides.forEach(slide => {
+      if (slide.querySelector('video')) {
+        videoObserver.observe(slide);
+      }
+    });
 
     nextBtn.addEventListener('click', () => {
       currentIdx = (currentIdx + 1) % slides.length;
