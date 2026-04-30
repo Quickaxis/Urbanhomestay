@@ -62,31 +62,24 @@ const initLightbox = () => {
   closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
     document.body.style.overflow = 'auto';
-    lightbox.classList.remove('video-mode');
-    const lightboxVideo = document.getElementById('lightbox-video');
-    if (lightboxVideo) {
-      lightboxVideo.pause();
-      lightboxVideo.src = "";
-    }
   });
 
   prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (lightbox.classList.contains('video-mode')) return;
     currentIdx = (currentIdx - 1 + currentImages.length) % currentImages.length;
     showLightboxImage(currentIdx);
   });
 
   nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (lightbox.classList.contains('video-mode')) return;
     currentIdx = (currentIdx + 1) % currentImages.length;
     showLightboxImage(currentIdx);
   });
 
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target.classList.contains('lightbox-img-wrap') || e.target.id === 'lightbox-video-container') {
-      closeBtn.click();
+    if (e.target === lightbox || e.target.classList.contains('lightbox-img-wrap')) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
   });
 
@@ -162,57 +155,7 @@ const initCarousels = () => {
       track.style.transform = `translateX(-${index * 100}%)`;
       currentIdx = index;
       updateDots(index);
-
-      // Manage video playback on slide change
-      slides.forEach((slide, i) => {
-        const video = slide.querySelector('video');
-        if (video) {
-          if (i === index) {
-            video.play();
-          } else {
-            video.pause();
-            video.muted = true;
-            const toggle = slide.querySelector('.audio-toggle');
-            if (toggle) {
-              const unmuteIcon = toggle.querySelector('.icon-unmute');
-              const muteIcon = toggle.querySelector('.icon-mute');
-              if (unmuteIcon) unmuteIcon.style.display = 'none';
-              if (muteIcon) muteIcon.style.display = 'block';
-            }
-          }
-        }
-      });
     };
-
-    // Auto-pause videos when they leave viewport
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const video = entry.target.querySelector('video');
-        if (video && !entry.isIntersecting) {
-          video.pause();
-          video.muted = true;
-          const toggle = entry.target.querySelector('.audio-toggle');
-          if (toggle) {
-            const unmuteIcon = toggle.querySelector('.icon-unmute');
-            const muteIcon = toggle.querySelector('.icon-mute');
-            if (unmuteIcon) unmuteIcon.style.display = 'none';
-            if (muteIcon) muteIcon.style.display = 'block';
-          }
-        } else if (video && entry.isIntersecting) {
-            // Only play if it's the active slide
-            const slideIdx = Array.from(track.children).indexOf(entry.target);
-            if (slideIdx === currentIdx) {
-                video.play();
-            }
-        }
-      });
-    }, { threshold: 0.2 });
-
-    slides.forEach(slide => {
-      if (slide.querySelector('video')) {
-        videoObserver.observe(slide);
-      }
-    });
 
     nextBtn.addEventListener('click', () => {
       currentIdx = (currentIdx + 1) % slides.length;
@@ -416,127 +359,6 @@ window.updateDeluxe = (btn, suiteId, type, pax) => {
   }
 };
 
-// ===== CUSTOM VIDEO CONTROLS =====
-const initVideoControls = () => {
-  const videoSlides = document.querySelectorAll('.slide-video, .hero-video-container');
-  
-  videoSlides.forEach(slide => {
-    const video = slide.querySelector('video');
-    if (!video) return;
-
-    if (!slide.querySelector('.video-overlay-controls')) {
-      const controls = document.createElement('div');
-      controls.className = 'video-overlay-controls';
-      controls.innerHTML = `
-        <div class="video-control-bar">
-          <div class="video-timeline-wrap">
-            <div class="video-timeline-progress"></div>
-            <div class="video-timeline-handle"></div>
-          </div>
-          <div class="video-actions">
-            <button class="v-btn play-pause-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
-            <button class="v-btn v-enlarge-btn">Enlarge Video</button>
-          </div>
-        </div>
-      `;
-      slide.appendChild(controls);
-    }
-
-    const overlay = slide.querySelector('.video-overlay-controls');
-    const timeline = slide.querySelector('.video-timeline-wrap');
-    const progress = slide.querySelector('.video-timeline-progress');
-    const playBtn = slide.querySelector('.play-pause-btn');
-    const enlargeBtn = slide.querySelector('.v-enlarge-btn');
-
-    // Prevent carousel swipe when interacting with controls
-    const stopEvents = ['touchstart', 'touchmove', 'touchend', 'click'];
-    stopEvents.forEach(evt => {
-      overlay.addEventListener(evt, (e) => e.stopPropagation());
-    });
-
-    // Better mobile toggle
-    let slideTouchStart = 0;
-    slide.addEventListener('touchstart', (e) => {
-      slideTouchStart = e.touches[0].clientX;
-    }, {passive: true});
-
-    slide.addEventListener('touchend', (e) => {
-      if (e.target.closest('.video-control-bar') || e.target.closest('.audio-toggle')) return;
-      const slideTouchEnd = e.changedTouches[0].clientX;
-      if (Math.abs(slideTouchStart - slideTouchEnd) < 10) {
-        e.preventDefault();
-        slide.classList.toggle('show-controls');
-      }
-    });
-
-    slide.addEventListener('click', (e) => {
-      if (window.innerWidth > 1024) { // Only for desktop, mobile uses touchend
-        if (e.target.closest('.video-control-bar') || e.target.closest('.audio-toggle')) return;
-        slide.classList.toggle('show-controls');
-      }
-    });
-
-    video.addEventListener('timeupdate', () => {
-      const perc = (video.currentTime / video.duration) * 100;
-      progress.style.width = perc + '%';
-      const handle = slide.querySelector('.video-timeline-handle');
-      if (handle) handle.style.left = perc + '%';
-    });
-
-    const handleSeek = (e) => {
-      const rect = timeline.getBoundingClientRect();
-      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-      const pos = (clientX - rect.left) / rect.width;
-      video.currentTime = Math.max(0, Math.min(1, pos)) * video.duration;
-    };
-
-    timeline.addEventListener('click', handleSeek);
-    timeline.addEventListener('touchstart', (e) => e.stopPropagation());
-    timeline.addEventListener('touchmove', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      handleSeek(e);
-    }, {passive: false});
-
-    playBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (video.paused) {
-        video.play();
-        playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-      } else {
-        video.pause();
-        playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
-      }
-    });
-
-    enlargeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const videoSrc = video.querySelector('source').src;
-      openVideoInLightbox(videoSrc);
-    });
-  });
-};
-
-const openVideoInLightbox = (src) => {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxVideo = document.getElementById('lightbox-video');
-  const lightboxImg = document.getElementById('lightbox-img');
-  
-  if (!lightbox || !lightboxVideo) return;
-
-  lightbox.classList.add('video-mode');
-  if (lightboxImg) lightboxImg.style.display = 'none';
-  
-  lightboxVideo.src = src;
-  lightboxVideo.load();
-  lightboxVideo.play();
-  
-  lightbox.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   initCarousels();
   initLightbox();
@@ -544,5 +366,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initAmenitiesSlider();
   initBookingForm();
-  initVideoControls();
 });

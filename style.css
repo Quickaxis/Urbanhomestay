@@ -330,7 +330,7 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .audio-toggle {
   position: absolute; top: 1.5rem; right: 1.5rem; width: 36px; height: 36px;
   border-radius: 50%; background: var(--glass-bg); border: 0.5px solid var(--gold);
-  color: var(--ink); cursor: pointer; z-index: 100; display: flex; align-items: center; justify-content: center;
+  color: var(--ink); cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
 }
 
 .card-content { padding: 2.5rem; display: flex; flex-direction: column; flex-grow: 1; }
@@ -1377,7 +1377,7 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10005; /* High z-index */
+  z-index: 10001;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
@@ -1405,7 +1405,6 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10005; /* High z-index */
 }
 
 .lightbox-prev { left: 2rem; }
@@ -1452,150 +1451,4 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   .section-title-alt { font-size: 2rem; }
   .mega-gallery-grid { grid-template-columns: 1fr; }
   .header-logo { height: 45px; }
-}
-
-/* ===== CUSTOM VIDEO CONTROLS ===== */
-.slide-video { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.video-overlay-controls {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.1); /* Subtle dim */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-  z-index: 90;
-}
-.slide-video:hover .video-overlay-controls,
-.slide-video.show-controls .video-overlay-controls {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.video-control-bar {
-  background: linear-gradient(transparent, rgba(0,0,0,0.9));
-  padding: 2rem 1.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.video-timeline-wrap {
-  width: 100%;
-  height: 12px; /* Thicker for touch */
-  background: rgba(255,255,255,0.2);
-  border-radius: 6px;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.video-timeline-progress {
-  position: absolute;
-  top: 0; left: 0; height: 100%;
-  background: var(--gold);
-  border-radius: 6px;
-  width: 0%;
-}
-
-.video-timeline-handle {
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  width: 16px;
-  height: 16px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  display: block; /* Always visible on mobile or when controls shown */
-}
-
-.video-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.v-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s;
-  padding: 10px; /* Larger hit area */
-}
-.v-btn:hover { transform: scale(1.1); color: var(--gold); }
-.v-btn svg { width: 32px; height: 32px; }
-
-.v-enlarge-btn {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  padding: 0.8rem 1.5rem;
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* Lightbox Video Adjustments */
-.lightbox-video-container {
-  width: 100%;
-  height: 100%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  inset: 0;
-}
-.lightbox-video-container video {
-  max-width: 95%;
-  max-height: 80%;
-  border-radius: 12px;
-  box-shadow: 0 30px 100px rgba(0,0,0,0.8);
-}
-
-.lightbox.video-mode .lightbox-img-wrap { display: none; }
-.lightbox.video-mode .lightbox-video-container { display: flex; }
-
-.lightbox-img-wrap {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-#lightbox-img {
-  max-width: 95%;
-  max-height: 80%;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-  .lightbox-prev, .lightbox-next {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
-  }
-  .lightbox-close {
-    width: 50px;
-    height: 50px;
-    top: 1rem;
-    right: 1rem;
-  }
-  .video-control-bar {
-    padding: 1rem;
-    gap: 10px;
-  }
 }
