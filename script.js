@@ -450,6 +450,12 @@ const initVideoControls = () => {
     const playBtn = slide.querySelector('.play-pause-btn');
     const enlargeBtn = slide.querySelector('.v-enlarge-btn');
 
+    // Prevent carousel swipe when interacting with controls
+    const stopEvents = ['touchstart', 'touchmove', 'touchend', 'click'];
+    stopEvents.forEach(evt => {
+      overlay.addEventListener(evt, (e) => e.stopPropagation());
+    });
+
     slide.addEventListener('click', (e) => {
       if (e.target.closest('.video-control-bar') || e.target.closest('.audio-toggle')) return;
       slide.classList.toggle('show-controls');
@@ -458,17 +464,24 @@ const initVideoControls = () => {
     video.addEventListener('timeupdate', () => {
       const perc = (video.currentTime / video.duration) * 100;
       progress.style.width = perc + '%';
+      const handle = slide.querySelector('.video-timeline-handle');
+      if (handle) handle.style.left = perc + '%';
     });
 
-    timeline.addEventListener('click', (e) => {
-      e.stopPropagation();
+    const handleSeek = (e) => {
       const rect = timeline.getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width;
-      video.currentTime = pos * video.duration;
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      const pos = (clientX - rect.left) / rect.width;
+      video.currentTime = Math.max(0, Math.min(1, pos)) * video.duration;
+    };
+
+    timeline.addEventListener('click', handleSeek);
+    timeline.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      handleSeek(e);
     });
 
     playBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
       if (video.paused) {
         video.play();
         playBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
@@ -479,7 +492,6 @@ const initVideoControls = () => {
     });
 
     enlargeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
       const videoSrc = video.querySelector('source').src;
       openVideoInLightbox(videoSrc);
     });
