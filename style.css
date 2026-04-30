@@ -1452,3 +1452,111 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   .mega-gallery-grid { grid-template-columns: 1fr; }
   .header-logo { height: 45px; }
 }
+
+/* ===== CUSTOM VIDEO CONTROLS ===== */
+.slide-video { position: relative; cursor: pointer; }
+.video-overlay-controls {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 15;
+}
+.slide-video:hover .video-overlay-controls,
+.slide-video.show-controls .video-overlay-controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-control-bar {
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-timeline-wrap {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.video-timeline-progress {
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  width: 0%;
+}
+
+.video-timeline-handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: none;
+}
+.video-timeline-wrap:hover .video-timeline-handle { display: block; }
+
+.video-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.v-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.v-btn:hover { transform: scale(1.1); color: var(--gold); }
+.v-btn svg { width: 24px; height: 24px; }
+
+.v-enlarge-btn {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Lightbox Video Adjustments */
+.lightbox-video-container {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.lightbox-video-container video {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+}
+
+.lightbox.video-mode .lightbox-img-wrap { display: none; }
+.lightbox.video-mode .lightbox-video-container { display: flex; }

@@ -615,12 +615,15 @@
 </footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
   <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
   <button class="lightbox-next" id="lightbox-next" aria-label="Next">›</button>
   <div class="lightbox-img-wrap">
     <img src="" alt="" id="lightbox-img"/>
+  </div>
+  <div class="lightbox-video-container" id="lightbox-video-container">
+    <video id="lightbox-video" playsinline controls></video>
   </div>
 </div>
 
