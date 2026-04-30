@@ -305,13 +305,24 @@ window.updateDeluxe = (suiteId, type, pax) => {
   }
   
   // Update UI
-  card.querySelector('.price-value').innerText = `₹${price.toLocaleString()}/- per night`;
-  card.querySelector('.price-secondary').style.display = 'none'; // Hide the static list
+  const priceValueEl = card.querySelector('.price-value');
+  if (priceValueEl) {
+    priceValueEl.innerText = `₹${price.toLocaleString()}/- per night`;
+  } else {
+    const suitePriceEl = card.querySelector('.suite-price');
+    if (suitePriceEl) {
+      suitePriceEl.innerHTML = `<span class="price-value">₹${price.toLocaleString()}/- per night</span>`;
+    }
+  }
+  
+  const priceSecondary = card.querySelector('.price-secondary');
+  if (priceSecondary) priceSecondary.style.display = 'none';
   
   // Update WA Link
   const roomName = card.querySelector('.suite-title').innerText;
   const text = encodeURIComponent(`Hi, I want to book the ${roomName} for ${activePax.toLowerCase()} (${activeType}).`);
-  document.getElementById(`wa-link-${suiteId}`).href = `https://wa.me/919707647235?text=${text}`;
+  const waLink = document.getElementById(`wa-link-${suiteId}`);
+  if (waLink) waLink.href = `https://wa.me/919707647235?text=${text}`;
 };
 
 document.addEventListener('DOMContentLoaded', () => {
