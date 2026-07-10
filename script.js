@@ -315,32 +315,6 @@ window.updateRoomBooking = (roomId, btn) => {
     }
   }
 
-  // Auto-switching constraints for Room 1 (Deer Bliss)
-  if (roomId === '01') {
-    const activeTypePill = container.querySelector('.type-pill.active');
-    const activeType = activeTypePill ? activeTypePill.getAttribute('data-type') : null;
-    const activePaxPill = container.querySelector('.pax-pill.active');
-    const activePax = activePaxPill ? activePaxPill.getAttribute('data-guests') : null;
-
-    if (activeType === 'Non AC' && activePax === '2 Guests') {
-      if (btn && btn.classList.contains('pax-pill')) {
-        // User clicked "2 Guests" -> switch type back to AC
-        const acPill = container.querySelector('.type-pill[data-type="AC"]');
-        if (acPill) {
-          container.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
-          acPill.classList.add('active');
-        }
-      } else {
-        // User clicked "Non AC" -> switch guests to "Up to 4 Guests"
-        const upTo4Pill = container.querySelector('.pax-pill[data-guests="Up to 4 Guests"]');
-        if (upTo4Pill) {
-          container.querySelectorAll('.pax-pill').forEach(p => p.classList.remove('active'));
-          upTo4Pill.classList.add('active');
-        }
-      }
-    }
-  }
-
   // Read current active states
   const activeTypePill = container.querySelector('.type-pill.active');
   const activeType = activeTypePill ? (activeTypePill.getAttribute('data-type') || activeTypePill.textContent.trim()) : 'AC';
@@ -365,11 +339,13 @@ window.updateRoomBooking = (roomId, btn) => {
 
   // Show and update the big selected price card
   const dynamicBox = document.getElementById(`dynamic-price-${roomId}`);
+  let noteEl = null;
   if (dynamicBox) {
     dynamicBox.style.display = "block";
 
     const comboEl = dynamicBox.querySelector(".selected-combo");
     const amountEl = dynamicBox.querySelector(".selected-amount");
+    noteEl = dynamicBox.querySelector(".selected-note");
 
     if (comboEl) {
       comboEl.textContent = activePax ? `${activeType} · ${activePax}` : `${activeType}`;
@@ -378,21 +354,40 @@ window.updateRoomBooking = (roomId, btn) => {
       if (price !== null && price !== undefined) {
         amountEl.innerHTML = `₹${price.toLocaleString()} <span>/ night</span>`;
       } else {
-        amountEl.innerHTML = `Not Available`;
+        amountEl.textContent = `Not Available`;
       }
+    }
+  }
+
+  if (noteEl) {
+    if (price === null) {
+      noteEl.textContent = "Non AC is available only for Up to 4 Guests";
+      noteEl.style.display = "block";
+    } else {
+      noteEl.style.display = "none";
     }
   }
 
   // Update WhatsApp link
   const waLink = container.querySelector('.wa-btn');
-  if (waLink && price !== null && price !== undefined) {
-    let messageText = '';
-    if (activePax) {
-      messageText = `Hi, I want to book ${roomInfo.name} for ${activePax} with ${activeType}. Price ₹${price.toLocaleString()}.`;
+  if (waLink) {
+    if (price === null || price === undefined) {
+      waLink.removeAttribute('href');
+      waLink.style.opacity = '0.5';
+      waLink.style.pointerEvents = 'none';
+      waLink.style.cursor = 'not-allowed';
     } else {
-      messageText = `Hi, I want to book ${roomInfo.name} with ${activeType}. Price ₹${price.toLocaleString()}.`;
+      let messageText = '';
+      if (activePax) {
+        messageText = `Hi, I want to book ${roomInfo.name} for ${activePax} with ${activeType}. Price ₹${price.toLocaleString()}.`;
+      } else {
+        messageText = `Hi, I want to book ${roomInfo.name} with ${activeType}. Price ₹${price.toLocaleString()}.`;
+      }
+      waLink.href = `https://wa.me/919707647235?text=${encodeURIComponent(messageText)}`;
+      waLink.style.opacity = '1';
+      waLink.style.pointerEvents = 'auto';
+      waLink.style.cursor = 'pointer';
     }
-    waLink.href = `https://wa.me/919707647235?text=${encodeURIComponent(messageText)}`;
   }
 };
 
