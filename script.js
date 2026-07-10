@@ -361,7 +361,7 @@ window.updateRoomBooking = (roomId, btn) => {
 
   if (noteEl) {
     if (price === null) {
-      noteEl.textContent = "Non AC is available only for Up to 4 Guests";
+      noteEl.textContent = "Non-AC is available only for Up to 4 Guests.";
       noteEl.style.display = "block";
     } else {
       noteEl.style.display = "none";
