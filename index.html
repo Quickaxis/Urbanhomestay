@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Urban Homestay — Dibrugarh's Premier Boutique Stay</title>
-<meta name="description" content="Experience luxury boutique stays in Dibrugarh. Three curated suites — Sunshine Premium, Deluxe 2-Room & Deep Sea — at Boiragimoth, Dibrugarh."/>
+<meta name="description" content="Experience luxury boutique stays in Dibrugarh. Four curated suites — Deer Bliss, Sunshine Premium, Deluxe 2-Room & Deep Sea — at Boiragimoth, Dibrugarh."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet"/>
@@ -17,14 +17,14 @@
   <div class="header-inner">
     <nav class="main-nav nav-left">
       <a href="#suites">SUITES</a>
-      <a href="#about-space">ABOUT</a>
+      <a href="#about-homestay">ABOUT</a>
     </nav>
     <div class="logo-wrap">
       <img src="photos/logo.jpg/newlogo.png" alt="The Urban Homestay Logo" class="header-logo"/>
       <span class="brand-text">THE URBAN HOMESTAY</span>
     </div>
     <nav class="main-nav nav-right">
-      <a href="#location">LOCATION</a>
+      <a href="#location-proximity">LOCATION</a>
       <a href="#suites" class="nav-cta ghost-btn">BOOK NOW</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -36,8 +36,8 @@
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobile-nav">
   <a href="#suites" onclick="closeMobileNav()">SUITES</a>
-  <a href="#about-space" onclick="closeMobileNav()">ABOUT</a>
-  <a href="#location" onclick="closeMobileNav()">LOCATION</a>
+  <a href="#about-homestay" onclick="closeMobileNav()">ABOUT</a>
+  <a href="#location-proximity" onclick="closeMobileNav()">LOCATION</a>
   <a href="#suites" onclick="closeMobileNav()" class="nav-cta">BOOK NOW</a>
 </div>
 
@@ -69,10 +69,84 @@
     <div class="section-header center reveal">
       <h2 class="section-title-alt">The Collection</h2>
       <p class="section-subtitle">Luxury living, reimagined in the heart of Dibrugarh.</p>
-      <div class="mid-week-badge">✨ Mon, Tue & Wed Special Discount Available</div>
+      <p class="check-time-info">🕒 Check-in: 12:00 PM | Check-out: 11:00 AM Sharp</p>
+      <div class="mid-week-badge">✨ Special Discounts Available on Monday, Tuesday & Wednesday</div>
     </div>
 
     <div class="suites-grid">
+      <!-- Suite 01: Deer Bliss -->
+      <div class="suite-card reveal">
+        <div class="card-media">
+          <span class="category-badge">COZY</span>
+          <div class="room-carousel" data-suite="01">
+            <div class="carousel-track">
+              <div class="carousel-slide slide-video">
+                <video autoplay loop playsinline muted>
+                  <source src="videos/newroom.mp4" type="video/mp4"/>
+                </video>
+                <button class="audio-toggle" aria-label="Toggle Audio">
+                  <svg class="icon-unmute" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M19.07 4.93C20.94 6.8 22 9.3 22 12C22 14.7 20.94 17.2 19.07 19.07M15.54 8.46C16.47 9.39 17 10.64 17 12C17 13.36 16.47 14.61 15.54 15.54"/></svg>
+                  <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5L6 9H2V15H6L11 19V5Z"/><path d="M23 9L17 15M17 9L23 15"/></svg>
+                </button>
+              </div>
+              <div class="carousel-slide"><img src="photos/new room/photo1.jpg" alt="Deer Bliss Room" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/new room/photo2.jpg" alt="Deer Bliss Room" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/new room/photo3.jpg" alt="Deer Bliss Room" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/new room/photo4.jpg" alt="Deer Bliss Room" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/new room/photo5.jpg" alt="Deer Bliss Room" class="lightbox-trigger"/></div>
+              <div class="carousel-slide"><img src="photos/new room/photo6.jpg" alt="Deer Bliss Room" class="lightbox-trigger"/></div>
+            </div>
+            <button class="carousel-arrow prev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-arrow next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="suite-title">Deer Bliss (Room No. 1)</h3>
+          <p class="suite-desc">Perfect for couples, families & small groups.</p>
+          <h4 style="font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">FACILITIES:</h4>
+          <ul class="suite-amenities">
+            <li>✔ 1 Bedroom</li>
+            <li>✔ Sofa Cum Bed</li>
+            <li>✔ Private Balcony</li>
+            <li>✔ Smart TV & Geyser</li>
+            <li>✔ Large Mirror & Wardrobe</li>
+            <li>✔ Dining Table & Refrigerator</li>
+            <li>✔ Kitchen with Gas Stove</li>
+          </ul>
+          <div class="suite-price">
+            <div class="price-card-grid">
+              <div class="price-col">
+                <div class="price-header-tag">AC SUITE</div>
+                <div class="price-item"><span>2 Guests</span> <strong>₹2,200</strong></div>
+                <div class="price-item"><span>4 Guests</span> <strong>₹3,000</strong></div>
+              </div>
+              <div class="price-col">
+                <div class="price-header-tag">NON-AC SUITE</div>
+                <div class="price-item"><span>2 Guests</span> <strong>—</strong></div>
+                <div class="price-item"><span>4 Guests</span> <strong>₹2,600</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="booking-selectors" id="selectors-01" style="display:none; margin-top: 1.5rem;">
+            <p style="font-size: 11px; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold);">SELECT PREFERENCE:</p>
+            <div class="selector-group" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill type-pill ac active" onclick="updateDeerBliss(this, '01', 'AC', null)">AC</button>
+                <button class="option-pill type-pill non-ac" onclick="updateDeerBliss(this, '01', 'Non AC', null)">NON AC</button>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill pax-pill active" onclick="updateDeerBliss(this, '01', null, '2 Guests')">2 Guests</button>
+                <button class="option-pill pax-pill" onclick="updateDeerBliss(this, '01', null, 'up to 4 Guests')">Up to 4 Guests</button>
+              </div>
+            </div>
+            <a id="wa-link-01" href="https://wa.me/919707647235?text=Hi, I want to book the Deer Bliss (Room No. 1) for 2 Guests with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+          </div>
+          <p class="room-note" style="font-size: 11px; font-style: italic; color: var(--gold); margin: 1.5rem 0 0.5rem; opacity: 0.8;">* Sofa cum bed can be available if required with extra charges</p>
+          <button class="btn-book-card toggle-booking" onclick="toggleBooking('01')">BOOK NOW</button>
+        </div>
+      </div>
+
       <!-- Suite 06: Sunshine Premium -->
       <div class="suite-card reveal">
         <div class="card-media">
@@ -107,25 +181,30 @@
         </div>
         <div class="card-content">
           <h3 class="suite-title">Sunshine Premium Suite (Room No 6)</h3>
-          <p class="suite-desc">Our most luxurious stay. Comfort with style.</p>
+          <p class="suite-desc">Our most luxurious stay.</p>
           <h4 style="font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">FACILITIES:</h4>
           <ul class="suite-amenities">
-            <li>✔ Private Kitchen</li>
-            <li>✔ Private Bathroom</li>
             <li>✔ AC & Mini Fridge</li>
             <li>✔ Rainfall Shower & LED Mirror</li>
             <li>✔ Projector & RO Water</li>
             <li>✔ Sofa & Dining Table</li>
+            <li>✔ Kitchen with Induction</li>
           </ul>
           <div class="suite-price">
             <span class="price-value">₹2,999/- per night</span>
           </div>
           <div class="booking-selectors" id="selectors-06" style="display:none; margin-top: 1.5rem;">
             <p style="font-size: 11px; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold);">PREMIUM SELECTION:</p>
-            <div class="selector-group" style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-              <span class="option-pill active">AC ONLY</span>
+            <div class="selector-group" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem;">
+                <span class="option-pill active">AC ONLY</span>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill pax-pill active" onclick="updateSunshine(this, '06', null, '2 Guests')">2 Guests</button>
+                <button class="option-pill pax-pill" onclick="updateSunshine(this, '06', null, 'up to 4 Guests')">Up to 4 Guests</button>
+              </div>
             </div>
-            <a id="wa-link-06" href="https://wa.me/919707647235?text=Hi, I want to book the Sunshine Premium Suite (Room No 6)." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+            <a id="wa-link-06" href="https://wa.me/919707647235?text=Hi, I want to book the Sunshine Premium Suite (Room No 6) for 2 Guests with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
           </div>
           <p class="room-note" style="font-size: 11px; font-style: italic; color: var(--gold); margin: 1.5rem 0 0.5rem; opacity: 0.8;">* Sofa cum bed can be available if required with extra charges</p>
           <button class="btn-book-card toggle-booking" onclick="toggleBooking('06')">BOOK NOW</button>
@@ -162,25 +241,31 @@
         </div>
         <div class="card-content">
           <h3 class="suite-title">Deep Sea Suite (Room No 5)</h3>
-          <p class="suite-desc">Stylish & cozy stay.</p>
+          <p class="suite-desc">A stylish and cozy stay.</p>
           <h4 style="font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">FACILITIES:</h4>
           <ul class="suite-amenities">
-            <li>✔ Private Kitchen</li>
-            <li>✔ Private Bathroom</li>
             <li>✔ Floating Bed</li>
+            <li>✔ Sofa Cum Bed</li>
             <li>✔ Smart TV & Geyser</li>
             <li>✔ Wardrobe & Dining Table</li>
+            <li>✔ Kitchen with Induction</li>
           </ul>
           <div class="suite-price">
             <span class="price-value">AC ₹2,200 | Non AC ₹1,700</span>
           </div>
           <div class="booking-selectors" id="selectors-05" style="display:none; margin-top: 1.5rem;">
             <p style="font-size: 11px; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold);">SELECT PREFERENCE:</p>
-            <div class="selector-group" style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-              <button class="option-pill active" onclick="updatePrice(this, '05', 'AC', 2200)">AC</button>
-              <button class="option-pill" onclick="updatePrice(this, '05', 'Non AC', 1700)">NON AC</button>
+            <div class="selector-group" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill type-pill active" onclick="updateDeepSea(this, '05', 'AC', null)">AC</button>
+                <button class="option-pill type-pill" onclick="updateDeepSea(this, '05', 'Non AC', null)">NON AC</button>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="option-pill pax-pill active" onclick="updateDeepSea(this, '05', null, '2 Guests')">2 Guests</button>
+                <button class="option-pill pax-pill" onclick="updateDeepSea(this, '05', null, 'up to 4 Guests')">Up to 4 Guests</button>
+              </div>
             </div>
-            <a id="wa-link-05" href="https://wa.me/919707647235?text=Hi, I want to book the Deep Sea Suite (Room No 5) with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+            <a id="wa-link-05" href="https://wa.me/919707647235?text=Hi, I want to book the Deep Sea Suite (Room No 5) for 2 Guests with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
           </div>
           <p class="room-note" style="font-size: 11px; font-style: italic; color: var(--gold); margin: 1.5rem 0 0.5rem; opacity: 0.8;">* Sofa cum bed can be available if required with extra charges</p>
           <button class="btn-book-card toggle-booking" onclick="toggleBooking('05')">BOOK NOW</button>
@@ -204,7 +289,6 @@
               </div>
               <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_main.webp" alt="Suite 03" class="lightbox-trigger"/></div>
               <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_1.webp" alt="Suite 03" class="lightbox-trigger"/></div>
-
               <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/a3a1cd34-62ba-4804-9ced-e97cdbfe869c.jpg" alt="Suite 03" class="lightbox-trigger"/></div>
               <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_4.webp" alt="Suite 03" class="lightbox-trigger"/></div>
               <div class="carousel-slide"><img src="photos/Deluxe 2 Room Suite (Room No 3)/suite03_5.webp" alt="Suite 03" class="lightbox-trigger"/></div>
@@ -217,27 +301,27 @@
         </div>
         <div class="card-content">
           <h3 class="suite-title">Deluxe 2 Room Suite (Room No 3)</h3>
-          <p class="suite-desc">Perfect for families, groups, couples & friends.</p>
+          <p class="suite-desc">Ideal for families, groups & friends.</p>
           <h4 style="font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">FACILITIES:</h4>
           <ul class="suite-amenities">
-            <li>✔ Private Kitchen</li>
-            <li>✔ Private Bathroom</li>
-            <li>✔ 2 Bedrooms & Private Balcony</li>
+            <li>✔ 2 Bedrooms</li>
+            <li>✔ Private Balcony</li>
             <li>✔ Smart TV & Geyser</li>
-            <li>✔ Wardrobe & Large Mirror</li>
-            <li>✔ Dining Table</li>
+            <li>✔ Large Mirror & Wardrobe</li>
+            <li>✔ Dining Table & Refrigerator</li>
+            <li>✔ Kitchen with Induction Stove</li>
           </ul>
           <div class="suite-price">
             <div class="price-card-grid">
               <div class="price-col">
                 <div class="price-header-tag">AC SUITE</div>
                 <div class="price-item"><span>2 Persons</span> <strong>₹2,200</strong></div>
-                <div class="price-item"><span>4 Persons</span> <strong>₹2,800</strong></div>
+                <div class="price-item"><span>4 Persons</span> <strong>₹3,000</strong></div>
               </div>
               <div class="price-col">
                 <div class="price-header-tag">NON-AC SUITE</div>
                 <div class="price-item"><span>2 Persons</span> <strong>₹1,700</strong></div>
-                <div class="price-item"><span>4 Persons</span> <strong>₹2,500</strong></div>
+                <div class="price-item"><span>4 Persons</span> <strong>₹2,600</strong></div>
               </div>
             </div>
           </div>
@@ -249,11 +333,11 @@
                 <button class="option-pill type-pill" onclick="updateDeluxe(this, '03', 'Non AC')">NON AC</button>
               </div>
               <div style="display: flex; gap: 0.5rem;">
-                <button class="option-pill pax-pill active" onclick="updateDeluxe(this, '03', null, '2 persons')">2 PERSONS</button>
-                <button class="option-pill pax-pill" onclick="updateDeluxe(this, '03', null, '4 persons')">4 PERSONS</button>
+                <button class="option-pill pax-pill active" onclick="updateDeluxe(this, '03', null, '2 Guests')">2 Guests</button>
+                <button class="option-pill pax-pill" onclick="updateDeluxe(this, '03', null, 'up to 4 Guests')">Up to 4 Guests</button>
               </div>
             </div>
-            <a id="wa-link-03" href="https://wa.me/919707647235?text=Hi, I want to book the Deluxe 2 Room Suite (Room No 3) for 2 persons with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
+            <a id="wa-link-03" href="https://wa.me/919707647235?text=Hi, I want to book the Deluxe 2 Room Suite (Room No 3) for 2 Guests with AC." target="_blank" class="btn-book-card wa-btn" style="margin-top: 1.5rem; background: #25D366; color: #fff; border: none; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">CONFIRM ON WHATSAPP</a>
           </div>
           <p class="room-note" style="font-size: 11px; font-style: italic; color: var(--gold); margin: 1.5rem 0 0.5rem; opacity: 0.8;">* Sofa cum bed can be available if required with extra charges</p>
           <button class="btn-book-card toggle-booking" onclick="toggleBooking('03')">BOOK NOW</button>
@@ -451,6 +535,9 @@
         <p class="narrative-body">
           We'd love to host you at Boiragimoth. Reach out via WhatsApp or fill the form and we'll get back to you shortly.
         </p>
+        <p class="booking-check-info" style="font-size: 13px; font-weight: 600; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 2rem;">
+          🕒 Check-in: 12:00 PM | Check-out: 11:00 AM Sharp
+        </p>
         
         <div class="contact-info-list">
           <a href="tel:+919707647235" class="contact-link-card">
@@ -521,21 +608,31 @@
             <label>SELECT ROOM</label>
             <select id="room-select" required>
               <option value="" disabled selected>Choose your suite...</option>
-              <option value="Sunshine Premium Suite (Room No 6)">Sunshine Premium Suite (Room No 6)</option>
-              <option value="Deep Sea Suite (Room No 5)">Deep Sea Suite (Room No 5)</option>
+              <option value="Deer Bliss (Room No. 1)">Deer Bliss (Room No. 1)</option>
               <option value="Deluxe 2 Room Suite (Room No 3)">Deluxe 2 Room Suite (Room No 3)</option>
+              <option value="Deep Sea Suite (Room No 5)">Deep Sea Suite (Room No 5)</option>
+              <option value="Sunshine Premium Suite (Room No 6)">Sunshine Premium Suite (Room No 6)</option>
             </select>
           </div>
 
-          <div class="form-group" style="margin-bottom: 1.5rem;">
-            <label>GUESTS</label>
-            <select id="guest-select" required>
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5">5+ Guests</option>
-            </select>
+          <div class="form-row" style="margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label>GUESTS</label>
+              <select id="guest-select" required>
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests">2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4 Guests">4 Guests</option>
+                <option value="5+ Guests">5+ Guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>AC / NON-AC PREFERENCE</label>
+              <select id="preference-select" required>
+                <option value="AC">AC</option>
+                <option value="Non-AC">Non-AC</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group">
@@ -572,16 +669,17 @@
       <div class="footer-links">
         <p class="footer-col-title">NAVIGATE</p>
         <a href="#suites">Suites</a>
-        <a href="#about-space">About</a>
-        <a href="#location">Location</a>
+        <a href="#about-homestay">About</a>
+        <a href="#location-proximity">Location</a>
         <a href="#booking">Book Now</a>
       </div>
 
       <div class="footer-links">
         <p class="footer-col-title">SUITES</p>
-        <a href="#suites">Sunshine Premium — No. 6</a>
+        <a href="#suites">Deer Bliss — No. 1</a>
         <a href="#suites">Deluxe 2-Room — No. 3</a>
         <a href="#suites">Deep Sea — No. 5</a>
+        <a href="#suites">Sunshine Premium — No. 6</a>
       </div>
 
       <div class="footer-contact">
@@ -603,8 +701,8 @@
 
     <div class="footer-seo-text">
       Looking for the best homestay in Dibrugarh? The Urban Homestay offers a premium boutique stay experience in the heart of Boiragimoth. 
-      Perfect for families, couples, and solo travelers exploring Assam. We provide the finest luxury suite rentals 
-      with top-tier amenities, cinematic entertainment, and a peaceful atmosphere.
+      Our four curated suites — Deer Bliss, Sunshine Premium, Deluxe 2-Room, and Deep Sea — are perfect for families, couples, and solo travelers exploring Assam. 
+      We provide the finest luxury suite rentals with top-tier amenities, cinematic entertainment, and a peaceful atmosphere.
     </div>
 
     <div class="footer-bottom">
