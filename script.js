@@ -1,3 +1,6 @@
+// URBAN HOMESTAY BOOKING FIX v2.5
+console.log("URBAN HOMESTAY BOOKING FIX v2.5 loaded");
+
 // ===== MOBILE NAV =====
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
@@ -373,9 +376,8 @@ window.updateRoomBooking = (roomId, btn) => {
   if (waLink) {
     if (price === null || price === undefined) {
       waLink.removeAttribute('href');
-      waLink.style.opacity = '0.5';
-      waLink.style.pointerEvents = 'none';
-      waLink.style.cursor = 'not-allowed';
+      waLink.classList.add('disabled');
+      waLink.setAttribute('aria-disabled', 'true');
     } else {
       let messageText = '';
       if (activePax) {
@@ -384,9 +386,8 @@ window.updateRoomBooking = (roomId, btn) => {
         messageText = `Hi, I want to book ${roomInfo.name} with ${activeType}. Price ₹${price.toLocaleString()}.`;
       }
       waLink.href = `https://wa.me/919707647235?text=${encodeURIComponent(messageText)}`;
-      waLink.style.opacity = '1';
-      waLink.style.pointerEvents = 'auto';
-      waLink.style.cursor = 'pointer';
+      waLink.classList.remove('disabled');
+      waLink.removeAttribute('aria-disabled');
     }
   }
 };

@@ -1,3 +1,5 @@
+/* URBAN HOMESTAY BOOKING FIX v2.5 */
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -1522,4 +1524,19 @@ video { display: block; width: 100%; height: 100%; object-fit: cover; }
   margin-bottom: 0.45rem;
   margin-top: 0.8rem;
 }
+
+.selected-note {
+  margin-top: 0.5rem;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b45309;
+}
+
+.wa-btn.disabled,
+.wa-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 
