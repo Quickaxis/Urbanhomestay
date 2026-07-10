@@ -353,23 +353,34 @@ window.updateRoomBooking = (roomId, btn) => {
   const priceKey = `${activeType}|${activePax}`;
   const price = roomInfo.prices[priceKey];
 
-  // Build the display text: e.g. "Selected: AC · 2 Guests · ₹2,200"
-  let displayParts = [];
-  displayParts.push(`Selected: ${activeType}`);
-  if (activePax) {
-    displayParts.push(activePax);
-  }
-  if (price !== null && price !== undefined) {
-    displayParts.push(`₹${price.toLocaleString()}`);
-  } else {
-    displayParts.push('Not Available');
-  }
-  const displayText = displayParts.join(' · ');
+  const card = container.closest('.suite-card') || document.querySelector(`.room-carousel[data-suite="${roomId}"]`).closest('.suite-card');
+  if (!card) return;
 
-  // Update selected price display element
-  const summaryEl = container.querySelector('.selected-price-display');
-  if (summaryEl) {
-    summaryEl.textContent = displayText;
+  // Hide the original price table/details when selector/dynamic price opens
+  const priceGrid = card.querySelector(".price-card-grid");
+  if (priceGrid) priceGrid.style.display = "none";
+
+  const priceValue = card.querySelector(".price-value");
+  if (priceValue) priceValue.style.display = "none";
+
+  // Show and update the big selected price card
+  const dynamicBox = document.getElementById(`dynamic-price-${roomId}`);
+  if (dynamicBox) {
+    dynamicBox.style.display = "block";
+
+    const comboEl = dynamicBox.querySelector(".selected-combo");
+    const amountEl = dynamicBox.querySelector(".selected-amount");
+
+    if (comboEl) {
+      comboEl.textContent = activePax ? `${activeType} · ${activePax}` : `${activeType}`;
+    }
+    if (amountEl) {
+      if (price !== null && price !== undefined) {
+        amountEl.innerHTML = `₹${price.toLocaleString()} <span>/ night</span>`;
+      } else {
+        amountEl.innerHTML = `Not Available`;
+      }
+    }
   }
 
   // Update WhatsApp link
